@@ -1,6 +1,5 @@
 from controller import Robot
 from controller import Keyboard
-from controller import Pen
 
 robot = Robot()
 kb = Keyboard()
@@ -11,8 +10,6 @@ motorC = robot.getDevice("C motor")
 motorD = robot.getDevice("D motor")
 motorE = robot.getDevice("E motor")
 motorF = robot.getDevice("F motor")
-
-pen=robot.getDevice("pen")
 
 timestep = int(robot.getBasicTimeStep())
 kb.enable(timestep)
@@ -30,10 +27,8 @@ while robot.step(timestep) != -1:
     print(key_pressed) 
     
     if(key_pressed == 49):
-        pen.setInkColor(0xF01010,1)
         motorA_pos += 0.005
     if(key_pressed == 50):
-        pen.setInkColor(0xAFF010,1)
         motorA_pos -= 0.005
         
     if(key_pressed == 51):
